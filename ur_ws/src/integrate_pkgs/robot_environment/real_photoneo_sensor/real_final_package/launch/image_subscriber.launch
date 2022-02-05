@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+<arg name="image_topic" default="/photoneo_center/rgb_texture"/>
+
+    <node pkg="real_final_package" type="image_subscriber" name="image_subscriber" output="screen">
+        <param name="image_topic" value="$(arg image_topic)"/>
+    </node>
+</launch>

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="ur3e_gripper">
+
+
+
+  <link name="world" />
+  <joint name="body1_joint" type="fixed">
+    <origin xyz="0.1 0.0 0.0"/>
+    <parent link="world"/>
+    <child  link="body1_link"/>
+  </joint>
+  <link name="body1_link">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="red">
+        <color rgba="1.0 0.0 0.0 2.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="UR3_calibration_board">
+    
+    <visual>
+        <!-- <origin xyz="0 0.0 0.0" rpy="0.0 0.0 0.0"/> -->
+      <geometry>
+        <mesh filename="package://setup_simulator/meshes/ur_calibration_board.stl" />
+        <!-- <box size="0.01 0.01 0.002"/> -->
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://setup_simulator/meshes/ur_calibration_board.stl" />
+        <!-- <box size="0.01 0.01 0.002"/> -->
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.034379"/>
+      <inertia ixx="7481.438e-09" ixy="0.0" ixz="0.0" iyy="27101.423e-09" iyz="-124.277e-09" izz="29027.607e-09"/>
+    </inertial>
+  </link>
+
+  <gazebo reference="ur3_calibration_board">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <joint name="UR3_camera_calibration_joint" type="fixed">
+    <origin xyz="0. 0.0 -0.026" rpy="0.0 ${pi} 0.0"/>
+    <parent link="ur3_calibration_board"/>
+    <!-- <parent link="${prefix}wrist_3_link" /> -->
+    <child link="body1_link"/>
+  </joint>
+</robot>

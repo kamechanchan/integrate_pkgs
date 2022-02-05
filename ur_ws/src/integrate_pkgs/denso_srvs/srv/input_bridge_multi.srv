@@ -1,0 +1,7 @@
+std_msgs/Float32MultiArray[] out_data
+sensor_msgs/Image output_img
+sensor_msgs/Image input_img
+---
+std_msgs/Float32MultiArray[] x
+std_msgs/Float32MultiArray[] y
+std_msgs/Float32MultiArray[] z

@@ -1,0 +1,14 @@
+<launch>
+    <arg name="object_name" default="HV8"/>
+    <arg name="use_sensor_type" default="phoxi_camera"/>
+    <arg name="gui" default="true"/>
+    <param name="use_gui" value="$(arg gui)"/>
+    <arg name="sensor_model" value="$(find setup_simulator)/urdf/phoxi_camera_pointcloud.urdf.gazebo.xacro"/>
+    <arg name="sensor_parent_frame" default="world" />
+    <arg name="sensor_tag" default="phoxi_camera" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find setup_simulator)/rviz/denso.rviz" required="true" />
+   
+    <param name="robot_description" type="str" command="$(find xacro)/xacro --inorder $(arg sensor_model) sensor_parent_frame:=$(arg sensor_parent_frame) " />
+    <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" /> -->
+
+</launch>

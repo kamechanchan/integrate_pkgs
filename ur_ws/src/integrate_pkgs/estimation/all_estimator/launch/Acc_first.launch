@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- <arg name="image_topic" default="/photoneo_center/sensor/image_color"/> -->
+    <arg name="load_path" default="networks/yolov3/weights/yolo_simulator_1.pth"/>
+
+    <node pkg="all_estimator" type="yolo_client_2D.py" name="yolo_client_2D" output="screen">
+        <!-- <param name="image_topic" value="$(arg image_topic)"/> -->
+        <param name="load_path" value="$(arg load_path)"/>
+    </node>
+
+    <!-- <node pkg="all_estimator" type="yolo_server_2D" name="yolo_server_2D" output="screen" /> -->
+</launch>

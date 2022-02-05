@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="data_path" default="/home/ericlab/hdf5_file/Acc_accuracy/"/>
+    <arg name="data_name" default="instance_tsuchida_1_1_1000_1.hdf5"/>
+    <arg name="data_number" default="2"/>
+
+    <node pkg="all_estimator" type="Acc_integ_client.py" name="acc_integ_client" output="screen">
+        <param name="data_number" value="$(arg data_number)"/>
+    </node>
+    <!-- <node pkg="all_estimator" type="Acc_read_hdf5.py" name="acc_read_hdf5" output="screen">
+        <param name="data_path" value="$(arg data_path)"/>
+        <param name="data_name" value="$(arg data_name)"/>
+    </node> -->
+</launch>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="sub_topic_name" default="/photoneo_center/pointcloud"/>
+    <arg name="distance_threshold" default="0.001"/>
+    
+    <node pkg="setup_simulator" type="cloud_planar_segmenter" name="cloud_planar_segmenter">
+        <param name="sub_topic_name" value="$(arg sub_topic_name)"/>
+        <param name="distance_threshold" value="$(arg distance_threshold)"/>
+    </node>
+</launch>

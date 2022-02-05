@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="ar_frame" default="marker_object_frame"/>
+    <arg name="true_frame" default="ur3_calibration_board"/>
+    <arg name="base_frame" default="base_link"/>
+    <arg name="sensor_frame" default="photoneo_center_optical_frame"/>
+    <arg name="x_para" default="-0.105"/>
+    <arg name="y_para" default="0.03"/>
+    <arg name="z_para" default="-0.01"/>
+    <arg name="q_x" default="-0.025"/>
+    <arg name="q_y" default="-0.00"/>
+    <arg name="q_z" default="-0.04"/>
+    
+    
+    
+    <node pkg="calibration_setting" type="calibration_3d" name="calibration_3d" output="screen">
+        <param name="ar_frame" value="$(arg ar_frame)"/>
+        <param name="true_frame" value="$(arg true_frame)"/>
+        <param name="base_frame" value="$(arg base_frame)"/>
+        <param name="sensor_frame" value="$(arg sensor_frame)"/>
+        <param name="q_x" value="$(arg q_x)"/>
+        <param name="q_y" value="$(arg q_y)"/>
+        <param name="q_z" value="$(arg q_z)"/>
+        <param name="x_para" value="$(arg x_para)"/>
+        <param name="y_para" value="$(arg y_para)"/>
+        <param name="z_para" value="$(arg z_para)"/>
+    </node>
+</launch>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="src_frame_name" default="world"/>
+    <arg name="object_name" default="HV8"/>
+    <arg name="node_name" default="model_tf_broadcaster"/>
+    
+    <node pkg="all_estimator" type="model_tf_publisher" name="$(arg node_name)">
+        <param name="src_frame_name" value="$(arg src_frame_name)"/>
+        <param name="object_name" value="$(arg object_name)"/>
+    </node>
+    
+    
+
+</launch>

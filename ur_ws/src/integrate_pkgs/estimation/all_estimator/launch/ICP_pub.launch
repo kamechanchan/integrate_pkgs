@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="instance_topic_name" default="ICP_pub"/>
+    <arg name="dummy_topic_name" default="lastICP_pub"/>
+    <!-- <arg name="frame_id" default="photoneo_center_optical_frame"/> -->
+    <arg name="frame_id" default="camera_color_optical_frame"/>
+    <!-- <arg name="frame_id" default="world"/> -->
+    
+    <node pkg="all_estimator" type="ICP_server" name="ICP_server" output="screen">
+        <param name="instance_topic_name" value="$(arg instance_topic_name)"/>
+        <param name="dummy_topic_name" value="$(arg dummy_topic_name)"/>
+        <param name="frame_id" value="$(arg frame_id)"/>
+    </node>
+</launch>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- <arg name="sim" default="false"/>
+    
+    <group if="$(arg sim)">
+        <arg name="image_topic" default="/photoneo_center/sensor/image_color"/>
+        <node pkg="all_estimator" type="yolo_server_2D" name="yolo_server_2D" output="screen" >
+            <param name="image_topic" value="$(arg image_topic)"/>
+        </node>
+    </group>
+    <group unless="$(arg sim)">
+        
+    </group> -->
+    <arg name="image_topic" default="/photoneo_center/rgb_texture"/>
+        <node pkg="all_estimator" type="yolo_server_2D" name="yolo_server_2D" output="screen" >
+            <param name="image_topic" value="$(arg image_topic)"/>
+        </node>
+    <node pkg="all_estimator" type="yolo_client_2D.py" name="yolo_client_2D" output="screen"/>
+</launch>

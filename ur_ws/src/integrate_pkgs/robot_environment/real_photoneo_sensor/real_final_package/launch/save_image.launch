@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="timeout" default="10"/>
+    <!-- <arg name="image_topic" default="/photoneo_center/rgb_texture"/> -->
+    <arg name="image_topic" default="/photoneo_center/texture"/>
+    <arg name="save_image_file" default="/home/ericlab/tsuchida/real_image/image.jpg"/>
+    <!-- fdd -->
+    <!-- fd -->
+    <node pkg="real_final_package" type="image_save" name="image_save" output="screen">
+        <param name="timeout" value="$(arg timeout)"/>
+        <param name="image_topic" value="$(arg image_topic)"/>
+        <param name="save_image_file" value="$(arg save_image_file)"/>
+    </node>
+</launch>

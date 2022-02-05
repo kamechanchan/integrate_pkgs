@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="object_name" default="HV8" />
+    <arg name="load_path" default="$(find all_estimator)/../../networks/semantic_segmentation/pointnet_semantic/weights/semantic_demo.pth"/>
+    <arg name="child_frame_id" default="estimated_tf" />
+    <arg name="header_frame_id" default="photoneo_center_optical_frame" />
+    <arg name="load_path2" default="$(find all_estimator)/../../networks/raugh_recognition/pointnet_pose/weights/raugh_demo.pth" />
+    <arg name="resolution2" default="1024" />
+
+    <node name="estimator_server" pkg="all_estimator" type="semantic_server.py" output="screen" >
+        <param name="object_name" value="$(arg object_name)" />
+        <param name="load_path" value="$(arg load_path)"/>
+        <param name="child_frame_id" value="$(arg child_frame_id)"/>
+        <param name="header_frame_id" value="$(arg header_frame_id)"/>
+        <param name="resolution2" value="$(arg resolution2)" />
+        <param name="load_path2" value="$(arg load_path2)"/>
+    </node>
+</launch>

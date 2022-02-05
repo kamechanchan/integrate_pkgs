@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="camera_info" default="/photoneo_center/sensor/camera_info"/>
+    <arg name="image_raw" default="/photoneo_center/sensor/image_color"/>
+    <arg name="input_pointcloud" default="/cloud_without_segmented"/>
+    <arg name="output_pointcloud" default="/output"/>
+    <arg name="target_frame" default="photoneo_center_optical_frame"/>
+    <arg name="source_frame" default="world"/>
+    <arg name="upper_filter_vals" default="220"/>
+    <arg name="lower_filter_val" default="30"/>
+    <arg name="camera_frame_id" default="photoneo_center_camera_frame"/>
+    
+    
+    
+    
+    <node name="colored_point" pkg="w2d_to_3d_ros" type="colord_cloud" output="screen">
+        <param name="camera_info" value="$(arg camera_info)"/>
+        <param name="image_raw" value="$(arg image_raw)"/>
+        <param name="input_pointcloud" value="$(arg input_pointcloud)"/>
+        <param name="output_pointcloud" value="$(arg output_pointcloud)"/>
+        <param name="target_frame" value="$(arg target_frame)"/>
+        <param name="source_frame" value="$(arg source_frame)"/>
+        <param name="upper_filter_vals" value="$(arg upper_filter_vals)"/>
+        <param name="lower_filter_val" value="$(arg lower_filter_val)"/>
+        <param name="camera_frame_id" value="$(arg camera_frame_id)"/>
+    </node>
+</launch>

@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="all_estimator" type="yolo_server_2D" name="yolo_server_2D" output="screen" />
+</launch>

@@ -1,0 +1,14 @@
+<launch>
+  <!-- Define the MoveIt controller manager plugin to use for trajectory execution -->
+  <param name="moveit_controller_manager" value="moveit_simple_controller_manager/MoveItSimpleControllerManager" />
+
+  <!-- Load controller list to the parameter server -->
+  <!-- <rosparam file="$(find ur_and_robotiq_85_moveit)/config/ros_controllers.yaml" /> -->
+  <arg name="sim" default="true"/>
+  <group if="$(arg sim)">
+    <rosparam file="$(find ur_and_robotiq_85_moveit)/config/ur_simulator_controller.yaml" />
+  </group>
+  <group unless="$(arg sim)">
+    <rosparam file="$(find ur_and_robotiq_85_moveit)/config/ur_calibration_controller.yaml" />
+  </group>
+</launch>

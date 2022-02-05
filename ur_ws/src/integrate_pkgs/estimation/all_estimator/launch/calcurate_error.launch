@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="common_source_frame" default="base_link"/>
+    <arg name="ground_truth_name" default="HV8_2"/>
+    <arg name="estimate_name" default="estimated_tf"/>
+    
+    <node pkg="all_estimator" type="calcurate_error" name="calcurate_error" output="screen">
+        <param name="common_source_frame" value="$(arg common_source_frame)"/>
+        <param name="ground_truth_name" value="$(arg ground_truth_name)"/>
+        <param name="estimate_name" value="$(arg estimate_name)"/>
+    </node>
+</launch>

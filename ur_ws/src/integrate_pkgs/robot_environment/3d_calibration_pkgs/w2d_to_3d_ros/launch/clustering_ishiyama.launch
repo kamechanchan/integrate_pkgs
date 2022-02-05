@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="input_topic_name" default="/output"/>
+    <arg name="cluster_threshhold" default="0.02"/>
+    <arg name="frame_id" default="photoneo_center_optical_frame"/>
+    <arg name="min_cluster_size" default="100"/>
+    <arg name="max_cluster_size" default="25000"/>
+    
+    <node name="clustering_ishiyama" pkg="w2d_to_3d_ros" type="clustering_ishiyama" output="screen">
+        <param name="topic_name" value="$(arg input_topic_name)"/>
+        <param name="thresh_hold" value="$(arg cluster_threshhold)"/>
+        <param name="frame_id" value="$(arg frame_id)"/>
+    </node>
+
+</launch>

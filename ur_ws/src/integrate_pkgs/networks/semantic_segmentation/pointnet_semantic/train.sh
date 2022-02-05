@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+python3 /home/ericlab/ros_package/integrate_ws/src/integrate_pkgs/networks/semantic_segmentation/pointnet_semantic/train.py \
+--dataroot /home/ericlab/Downloads/ \
+--dataset_model semantic_changed_occulution_kiriwake_9_14_1000_1.hdf5 \
+--dataset_mode semantic_segmentation \
+--checkpoints_dir /home/ericlab/OneDrive/DENSO/August \
+--resolution 8192 \
+--phase train \
+--process_swich object_segment \
+--batch_size 2 \
+--num_epoch 200 \
+--max_dataset_size 630 \
+--arch PointNet_Segmentation \
+--print_freq 10 \
+--save_latest_freq 20000 \
+--save_epoch_freq 1 \
+--run_test_freq 1 \
+--gpu_ids -1 \
+--gpu_num 0 \
+--num_threads 0 \
+--serial_batches False \
+--verbose_plot True \
+--lr 0.0001 \
+--is_train True \
+--checkpoints_human_swich ishiyama \
+--dataroot_swich semantic_occlusion \
+--local_checkpoints_dir /home/ericlab/DENSO_results/August \
+--tensorboardX_results_directory /home/ericlab/ros_package/denso_ws/src/denso_run/denso_pkgs/pose_estimator_pkg/trainer/tensorboardX/ \
+--tensorboardX_results_directory_switch ishiyama/0915_semantic \
+--instance_number 2 \
+--semantic_number 3

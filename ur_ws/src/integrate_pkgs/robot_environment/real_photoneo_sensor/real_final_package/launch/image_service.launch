@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="service_name" default="tsuchida_service"/>
+    <arg name="image_topic_name" default="/photoneo_center/rgb_texture"/>
+    
+    <node pkg="real_final_package" type="image_service_client" name="image_service_client" output="screen">
+        <param name="service_name" value="$(arg service_name)"/>
+    </node>
+    <node pkg="real_final_package" type="image_service_server" name="image_service_server" output="screen">
+        <param name="service_name" value="$(arg service_name)"/>
+        <param name="image_topic_name" value="$(arg image_topic_name)"/>
+    </node>
+</launch>

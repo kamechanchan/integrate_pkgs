@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="camera_topic_name" default="/photoneo_center/sensor/camera_info"/>
+    <arg name="YOLO_topic_name" default="ishiyama_YOLO"/>
+    <arg name="model_name" default="HV8"/>
+    <arg name="f_scale" default="0.5"/>
+    <arg name="cx_scale" default="0.99"/>
+    <arg name="cy_scale" default="0.9"/>
+    <arg name="radious" default="0.05"/>
+    <arg name="timespan" default="4"/>
+    <arg name="inputcloud_topic_name" default="cloud_without_segmented"/>
+    <arg name="output_topic_name" default="/tanomimasu"/>
+    <arg name="instance_number" default="0"/>
+    <arg name="frame_id" default="photoneo_center_optical_frame"/>
+    
+    
+    
+    <node name="Bridge" pkg="all_estimator" type="Acc_2D_to_3D_insnum" output="screen">
+        <param name="camera_topic_name" value="$(arg camera_topic_name)"/>
+        <param name="YOLO_topic_name" value="$(arg YOLO_topic_name)"/>
+        <param name="model_name" value="$(arg model_name)"/>
+        <param name="f_scale" value="$(arg f_scale)"/>
+        <param name="cx_scale" value="$(arg cx_scale)"/>
+        <param name="cy_scale" value="$(arg cy_scale)"/>
+        <param name="radious" value="$(arg radious)"/>
+        <param name="timespan" value="$(arg timespan)"/>
+        <param name="inputcloud_topic_name" value="$(arg inputcloud_topic_name)"/>
+        <param name="output_topic_name" value="$(arg output_topic_name)"/>
+        <param name="instance_number" value="$(arg instance_number)"/>
+        <param name="frame_id" value="$(arg frame_id)"/>
+    </node>
+</launch>

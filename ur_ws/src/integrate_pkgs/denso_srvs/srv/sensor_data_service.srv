@@ -1,0 +1,6 @@
+bool call
+---
+sensor_msgs/Image image 
+sensor_msgs/CameraInfo camera_info
+denso_msgs/out_segmentation out_point
+denso_msgs/denso_pointcloud2 point_cloud2

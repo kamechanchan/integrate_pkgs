@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="service_name" default="message_service"/>
+    <arg name="camera_topic_name" default="/photoneo_center/camera_info"/>
+    <arg name="image_topic_name" default="/photoneo_center/rgb_texture"/>
+    <arg name="point_cloud2_topic_name" default="/photoneo_center/pointcloud"/> 
+
+    <!-- <arg name="camera_topic_name" default="/camera/color/camera_info"/>
+    <arg name="image_topic_name" default="/camera/color/image_raw"/>
+    <arg name="point_cloud2_topic_name" default="/camera/depth/color/points"/> -->
+
+    <arg name="world_frame" default="base_link"/>
+    <!-- <arg name="point_cloud2_topic_name" default="/cropped_cloud"/> -->
+
+
+    <arg name="loop_rate" default="60" />
+    <arg name="crop_x_min" default="0.2" />
+    <arg name="crop_x_max" default="0.6" />
+    <arg name="crop_y_min" default="-0.25" />
+    <arg name="crop_y_max" default="0.25" />
+    <arg name="crop_z_min" default="-0.2" />
+    <arg name="crop_z_max" default="0.1" />
+    <!-- <arg name="crop_pc_src" default="/camera/depth/color/points" /> -->
+    <arg name="crop_pc_src" default="/photoneo_center/pointcloud" />
+    <arg name="crop_pc_dst" default="/cropped_cloud" />
+    <arg name="use_rgb" default="false" />
+    <arg name="crop_frame_id" default="world" />
+
+
+    
+    <node pkg="all_estimator" type="message_server" name="message_server" output="screen">
+        <param name="image_topic" value="$(arg image_topic_name)"/>
+        <param name="camera_info_topic" value="$(arg camera_topic_name)"/>
+        <param name="service_name" value="$(arg service_name)"/>
+        <param name="point_cloud2_topic" value="$(arg point_cloud2_topic_name)"/>
+        <param name="loop_rate" value="$(arg loop_rate)"/>
+
+        <param name="crop_x_min" value="$(arg crop_x_min)" />
+        <param name="crop_x_max" value="$(arg crop_x_max)" />
+        <param name="crop_y_min" value="$(arg crop_y_min)" />
+        <param name="crop_y_max" value="$(arg crop_y_max)" />
+        <param name="crop_z_min" value="$(arg crop_z_min)" />
+        <param name="crop_z_max" value="$(arg crop_z_max)" />
+        <param name="world_frame" value="$(arg world_frame)"/>
+
+
+
+    </node>
+
+</launch>
+
+
+
